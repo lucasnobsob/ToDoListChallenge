@@ -1,55 +1,72 @@
-# Prerequisites
-*.d
+## Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Dd]ist/
+[Dd]ist/
+[Dd]ebug-vs/
+[Dd]ebug-x86/
+[Dd]ebug-x64/
+[Dd]ebug-any/
+[Dd]ebug-windows/
+[Dd]ebug-linux/
+[Dd]ebug-osx/
+[Dd]ebug-arm/
+bin/
+obj/
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
+## User-specific files
+.idea/
+.vscode/
 
-# Linker output
-*.ilk
-*.map
-*.exp
+## Windows installer files
+*.cab
+*.msi
+*.msm
+*.msp
 
-# Precompiled Headers
-*.gch
-*.pch
+## Windows Installer (Visual Studio)
+.vs2017/
+.vs2019/
+.vs2015/
+.vs/
+# User-specific files for Visual Studio for Mac
+.vscode/
 
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
+## Windows image file
+Thumbs.db
 
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
+## JetBrains Rider
+.idea/
 
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
+## ASP.NET Scaffolding
+ScaffoldingReadMe.txt
 
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
+## .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
 
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+## npm packages
+node_modules/
 
-# debug information files
-*.dwo
+## Windows Installer Files
+*.cab
+*.msi
+*.msm
+*.msp
+
+## SQL Server files
+*.mdf
+*.ldf
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Windows Installer
+*.cab
+*.msi
+*.msm
+*.msp

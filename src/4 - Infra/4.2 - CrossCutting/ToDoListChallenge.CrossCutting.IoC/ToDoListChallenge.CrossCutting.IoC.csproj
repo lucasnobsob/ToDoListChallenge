@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="9.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.3.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\2 - Application\ToDoListChallenge.Application\ToDoListChallenge.Application.csproj" />
+    <ProjectReference Include="..\..\..\3 - Domain\ToDoListChallenge.Domain.Core\ToDoListChallenge.Domain.Core.csproj" />
+    <ProjectReference Include="..\..\4.1 - Data\ToDoListChallenge.Infra.Data\ToDoListChallenge.Infra.Data.csproj" />
+    <ProjectReference Include="..\ToDoListChallenge.CrossCutting.Bus\ToDoListChallenge.CrossCutting.Bus.csproj" />
+    <ProjectReference Include="..\ToDoListChallenge.CrossCutting.Identity\ToDoListChallenge.CrossCutting.Identity.csproj" />
+  </ItemGroup>
+  
+</Project>
