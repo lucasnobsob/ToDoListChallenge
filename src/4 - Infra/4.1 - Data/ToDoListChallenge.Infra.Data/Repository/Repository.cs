@@ -20,7 +20,7 @@ namespace ToDoListChallenge.Infra.Data.Repository
             await DbSet.AddAsync(obj);
         }
 
-        public virtual async Task<TEntity> GetByIdAsync(Guid id)
+        public virtual async Task<TEntity?> GetByIdAsync(Guid id)
         {
             return await DbSet.FindAsync(id);
         }

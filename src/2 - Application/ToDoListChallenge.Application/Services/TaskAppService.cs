@@ -44,11 +44,11 @@ namespace ToDoListChallenge.Application.Services
             return _mapper.Map<TaskItemViewModel>(taskItem);
         }
 
-        public async Task<TaskItemViewModel> GetByFilterAsync(TaskItemStatus? status, DateOnly? dueDate)
+        public async Task<IEnumerable<TaskItemViewModel>> GetByFilterAsync(TaskItemStatus? status, DateOnly? dueDate)
         {
             var specification = new TaskItemFilterSpecification((ToDoListAPI.Domain.Enums.TaskItemStatus?)status, dueDate);
             var taskItem = await _taskItemRepository.GetAll(specification);
-            return _mapper.Map<TaskItemViewModel>(taskItem);
+            return _mapper.Map<List<TaskItemViewModel>>(taskItem);
         }
 
         public async Task RegisterAsync(CreateTaskItemViewModel taskItemViewModel)
