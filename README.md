@@ -10,7 +10,7 @@
 - FluentValidator
 - MediatR
 - Swagger UI
-- MySQL
+- SQLServer
 - xUnit
 - Moq
 - Fluent Assertions
@@ -60,7 +60,7 @@ Este projeto é composto por:
    dotnet run
    ```
 
-> A API estará disponível em `http://localhost:44376` conforme especificado no `launchSettings.json`.
+> A API estará disponível em `http://localhost:44360` conforme especificado no `launchSettings.json`.
 
 ---
 
