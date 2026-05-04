@@ -74,6 +74,7 @@ namespace ToDoListChallenge.Domain.CommandHandlers
                 return await Task.FromResult(false);
             }
 
+            task.Status = request.Status;
             _taskItemRepository.Update(task);
 
             if (Commit())

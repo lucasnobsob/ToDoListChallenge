@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using ToDoListAPI.Domain.Enums;
 using ToDoListChallenge.Domain.Commands;
 
 namespace ToDoListChallenge.Domain.Validations
@@ -40,6 +41,7 @@ namespace ToDoListChallenge.Domain.Validations
         {
             RuleFor(c => c.Status)
                 .IsInEnum()
+                .NotEqual(TaskItemStatus.Pendente)
                 .WithMessage("O status da tarefa deve ser um valor válido");
         }
     }

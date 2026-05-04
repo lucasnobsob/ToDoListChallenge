@@ -7,9 +7,6 @@ namespace ToDoListChallenge.Domain.Validations
         public UpdateTaskValidation()
         {
             ValidateId();
-            ValidateDescription();
-            ValidateTitle();
-            ValidateDueDate();
             ValidateStatus();
         }
     }
