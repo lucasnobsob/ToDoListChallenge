@@ -1,0 +1,6 @@
+services:
+  todolistchallenge.presentation.api:
+    image: ${DOCKER_REGISTRY-}todolistchallengepresentationapi
+    build:
+      context: .
+      dockerfile: src/1 - Presentation/ToDoListChallenge.Presentation.API/Dockerfile
