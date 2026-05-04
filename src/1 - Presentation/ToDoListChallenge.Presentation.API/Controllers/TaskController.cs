@@ -72,7 +72,7 @@ namespace ToDoListChallenge.Presentation.API.Controllers
 
             await _taskAppService.RegisterAsync(createTaskItemViewModel);
 
-            return Response();
+            return Response(created: true);
         }
 
         [HttpPut]
@@ -100,7 +100,7 @@ namespace ToDoListChallenge.Presentation.API.Controllers
 
             await _taskAppService.RemoveAsync(id);
 
-            return NoContent();
+            return Response();
         }
     }
 }

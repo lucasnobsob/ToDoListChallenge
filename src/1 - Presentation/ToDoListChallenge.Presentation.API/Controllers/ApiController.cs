@@ -30,7 +30,7 @@ namespace ToDoListChallenge.Services.Api.Controllers
             return (!_notifications.HasNotifications());
         }
 
-        protected new IActionResult Response(object result = null)
+        protected new IActionResult Response(object? result = null, bool created = false)
         {
             if (IsValidOperation())
             {
@@ -43,11 +43,22 @@ namespace ToDoListChallenge.Services.Api.Controllers
                     ));
                 }
 
+                if (created)
+                    return Created();
+
+                if (result is null)
+                    return NoContent();
+
                 return Ok(new SuccessResult<object>(true, result));
             }
 
-            return BadRequest(new ErrorResult<object>(
-                false, _notifications.GetNotifications().Select(n => n.Value)));
+            var notifications = _notifications.GetNotifications();
+            if (notifications.Any(x => string.Equals(x.Key, "NotFound", StringComparison.OrdinalIgnoreCase)))
+            {
+                return NotFound(new ErrorResult<object>(false, notifications.Select(x => x.Value)));
+            }
+
+            return BadRequest(new ErrorResult<object>(false, notifications.Select(x => x.Value)));
         }
 
         protected void NotifyModelStateErrors()

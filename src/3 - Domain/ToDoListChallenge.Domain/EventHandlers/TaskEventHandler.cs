@@ -10,17 +10,17 @@ namespace ToDoListChallenge.Domain.EventHandlers
     {
         public Task Handle(TaskRegisteredEvent notification, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            return Task.CompletedTask;
         }
 
         public Task Handle(TaskUpdatedEvent notification, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            return Task.CompletedTask;
         }
 
         public Task Handle(TaskRemovedEvent notification, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            return Task.CompletedTask;
         }
     }
 }

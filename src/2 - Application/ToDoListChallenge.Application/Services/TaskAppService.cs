@@ -35,9 +35,12 @@ namespace ToDoListChallenge.Application.Services
             return _mapper.Map<List<TaskItemViewModel>>(taskItems);
         }
 
-        public async Task<TaskItemViewModel> GetByIdAsync(Guid id)
+        public async Task<TaskItemViewModel?> GetByIdAsync(Guid id)
         {
             var taskItem = await _taskItemRepository.GetByIdAsync(id);
+            if (taskItem is null)
+                return null;
+
             return _mapper.Map<TaskItemViewModel>(taskItem);
         }
 

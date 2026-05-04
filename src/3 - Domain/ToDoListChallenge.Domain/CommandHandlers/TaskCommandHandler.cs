@@ -45,7 +45,7 @@ namespace ToDoListChallenge.Domain.CommandHandlers
 
             if (await _taskItemRepository.GetByTitle(task.Title) is not null)
             {
-                await Bus.RaiseEvent(new DomainNotification(request.MessageType, "The task e-mail has already been taken."));
+                await Bus.RaiseEvent(new DomainNotification(request.MessageType, "Já existe uma tarefa com este título."));
                 return await Task.FromResult(false);
             }
 
@@ -59,14 +59,53 @@ namespace ToDoListChallenge.Domain.CommandHandlers
             return await Task.FromResult(true);
         }
 
-        public Task<bool> Handle(UpdateTaskCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(UpdateTaskCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            if (!request.IsValid())
+            {
+                NotifyValidationErrors(request);
+                return await Task.FromResult(false);
+            }
+
+            var task = await _taskItemRepository.GetByIdAsync(request.Id);
+            if (task is null)
+            {
+                await Bus.RaiseEvent(new DomainNotification("NotFound", "Tarefa não encontrada."));
+                return await Task.FromResult(false);
+            }
+
+            _taskItemRepository.Update(task);
+
+            if (Commit())
+            {
+                await Bus.RaiseEvent(new TaskUpdatedEvent(task.Id, task.Title, task.Description, task.DueDate, task.Status));
+            }
+
+            return await Task.FromResult(true);
         }
 
-        public Task<bool> Handle(RemoveTaskCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(RemoveTaskCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            if (!request.IsValid())
+            {
+                NotifyValidationErrors(request);
+                return await Task.FromResult(false);
+            }
+
+            var task = await _taskItemRepository.GetByIdAsync(request.Id);
+            if (task is null)
+            {
+                await Bus.RaiseEvent(new DomainNotification("NotFound", "Tarefa não encontrada."));
+                return await Task.FromResult(false);
+            }
+
+            await _taskItemRepository.Remove(task.Id);
+
+            if (Commit())
+            {
+                await Bus.RaiseEvent(new TaskRemovedEvent(request.Id));
+            }
+            return await Task.FromResult(true);
         }
     }
 }

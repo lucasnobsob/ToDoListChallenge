@@ -18,6 +18,8 @@ using ToDoListChallenge.Application.Services;
 using ToDoListChallenge.Domain.Commands;
 using ToDoListChallenge.Domain.CommandHandlers;
 using ToDoListChallenge.Infra.Data.Repository;
+using ToDoListChallenge.Domain.EventHandlers;
+using ToDoListChallenge.Domain.Events;
 
 namespace ToDoListChallenge.Infra.CrossCutting.IoC
 {
@@ -40,6 +42,9 @@ namespace ToDoListChallenge.Infra.CrossCutting.IoC
 
             // Domain - Events
             services.AddScoped<INotificationHandler<DomainNotification>, DomainNotificationHandler>();
+            services.AddScoped<INotificationHandler<TaskRegisteredEvent>, TaskEventHandler>();
+            services.AddScoped<INotificationHandler<TaskUpdatedEvent>, TaskEventHandler>();
+            services.AddScoped<INotificationHandler<TaskRemovedEvent>, TaskEventHandler>();
 
             // Domain - Commands
             services.AddScoped<IRequestHandler<RegisterNewTaskCommand, bool>, TaskCommandHandler>();

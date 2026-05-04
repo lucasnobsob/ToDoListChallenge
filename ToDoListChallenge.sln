@@ -39,7 +39,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoListChallenge.Presentat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoListChallenge.Tests.Application", "tests\ToDoListChallenge.Tests.Application\ToDoListChallenge.Tests.Application.csproj", "{68263A27-078F-4C50-A7A8-69AA82839C01}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoListChallenge.Tests.Services", "tests\ToDoListChallenge.Tests.Services\ToDoListChallenge.Tests.Services.csproj", "{B4A55167-3C12-428C-9B5F-C925C8834D99}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoListChallenge.Tests.Presentation", "tests\ToDoListChallenge.Tests.Services\ToDoListChallenge.Tests.Presentation.csproj", "{B4A55167-3C12-428C-9B5F-C925C8834D99}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
