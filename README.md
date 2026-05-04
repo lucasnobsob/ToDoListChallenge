@@ -1,4 +1,4 @@
-# GigaConsulting-CodeChallenge
+# ToDoListChallenge
 
 ## Stack Técnica
 - .NET 9.0
@@ -46,32 +46,13 @@ Este projeto é composto por:
 
 ---
 
-## 🐳 Rodando o projeto com Docker
+## 🧪 Rodando a API localmente (Sem Docker)
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/lucasnobsob/GigaConsulting-CodeChallenge.git
-   cd seu-repositorio
+   git clone https://github.com/lucasnobsob/ToDoListChallenge.git
+   cd ToDoListChallenge
    ```
-
-2. Construa e suba os containers:
-   ```bash
-   docker-compose up
-   ```
-
-> A API estará disponível em `http://localhost:8080`
-
----
-
-## 🧪 Rodando o projeto sem Docker
-
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/lucasnobsob/GigaConsulting-CodeChallenge.git
-   cd seu-repositorio
-   ```
-
-### 🔧 Rodando o Backend (.NET 9)
 
 2. Restaure os pacotes e rode a aplicação:
    ```bash
@@ -80,6 +61,41 @@ Este projeto é composto por:
    ```
 
 > A API estará disponível em `http://localhost:44376` conforme especificado no `launchSettings.json`.
+
+---
+
+## 🐳 Rodando a API via Docker (Localmente com docker-compose)
+
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/lucasnobsob/ToDoListChallenge.git
+   cd ToDoListChallenge
+   ```
+
+2. Construa e suba os containers:
+   ```bash
+   docker-compose up -d
+   ```
+
+> A API estará disponível em `http://localhost:8080`
+
+---
+
+## 📦 Baixando e rodando a API a partir do DockerHub
+
+Você pode baixar a imagem já construída diretamente do DockerHub.
+
+1. Baixe a imagem mais recente:
+   ```bash
+   docker pull lucassobdocker/todolistchallenge-api:latest
+   ```
+
+2. Inicie o container executando a imagem:
+   ```bash
+   docker run -d -p 8080:8080 lucassobdocker/todolistchallenge-api:latest
+   ```
+
+> A API estará disponível em `http://localhost:8080`
 
 ---
 

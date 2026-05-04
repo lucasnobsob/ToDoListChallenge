@@ -1,16 +1,16 @@
 version: '3.4'
 
 services:
-  todolistchallenge.services.api:
+  todolistchallenge.presentation.api:
     build:
       context: .
-      dockerfile: src/1 - Services/ToDoListChallenge.Services.API/Dockerfile
+      dockerfile: src/1 - Presentation/ToDoListChallenge.Presentation.API/Dockerfile
     ports:
       - "8080:8080"
       - "8081:8081"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=ToDoListDb;Integrated Security=True;TrustServerCertificate=True;
+      - ConnectionStrings__DefaultConnection=Server=sqlserver,1433;Database=ToDoListDb;User Id=sa;Password=YourStrong@Passw0rd;TrustServerCertificate=True;
     depends_on:
       - sqlserver
     networks:
@@ -21,6 +21,7 @@ services:
     environment:
       ACCEPT_EULA: Y
       MSSQL_PID: Developer
+      SA_PASSWORD: YourStrong@Passw0rd
     ports:
       - "1433:1433"
     volumes:
